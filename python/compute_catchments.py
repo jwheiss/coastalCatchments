@@ -139,7 +139,6 @@ for h in range(0, len(RCPs) ):  #loop through scenarios
         for field in fieldMappings.fields:
             if field.name not in RCP:
                 fieldMappings.removeFieldMap(fieldMappings.findFieldMapIndex(field.name))
-        #merge future coastline with sections of present-day subaerial coastline
         arcpy.analysis.SpatialJoin("tile_centroid", Kopp, "tile_centroid_joined", "JOIN_ONE_TO_ONE", "KEEP_COMMON", fieldMappings, "CLOSEST")
         
         #extract SLR height for contouring
